@@ -1,4 +1,4 @@
-import { Button, Heading, Container, Box, Text } from '@chakra-ui/react'
+import { Button, Heading, Container, Box, Text, Link } from '@chakra-ui/react'
 import { useState, useEffect, useRef } from 'react'
 import Rules from '../components/Rules'
 import WordBlock from '../components/WordBlock'
@@ -134,6 +134,7 @@ export default function Home() {
         >Reset Game</Button>
         <Rules />
       </Box>
+      <Text mt={4} fontSize='sm'>Made with <u><Link href="https://reactjs.org/" isExternal color='yellow.300'>React</Link></u> and <u><Link href="https://nextjs.org/" isExternal color='yellow.300'>Next</Link></u> by <u><Link href='https://www.linkedin.com/in/mpay/' isExternal color='yellow.300'>this guy</Link></u>.</Text>
     </Container>
   )
 }
