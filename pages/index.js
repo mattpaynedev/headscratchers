@@ -1,5 +1,6 @@
 import { Button, Heading, Container, Box, Text } from '@chakra-ui/react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import Rules from '../components/Rules'
 import WordBlock from '../components/WordBlock'
 import { chooseWord } from '../utils'
 
@@ -15,6 +16,8 @@ export default function Home() {
   const [answer, setAnswer] = useState(chooseWord())
   const [turnCount, setTurnCount] = useState(0)
   const [invalidGuess, setInvalidGuess] = useState(false)
+
+  const refocusToInput = useRef(null)
 
   useEffect(() => {
     if (answer.length) {
@@ -100,13 +103,12 @@ export default function Home() {
   }
 
   return (
-    <Container maxW="100%" minH="100vh" bg="gray.600" color="gray.50" centerContent>
-      <Container centerContent mt={4} mb={4}>
-        <Heading fontFamily='title' color='yellow.300' mb={4}>Head Scratchers</Heading>
-        <Text>Start typing to get started.</Text>
-        <Text>Press ENTER to submit a guess.</Text>
+    <Container maxW="100vw" minH="100vh" bg="gray.600" color="gray.50" centerContent>
+      <Container centerContent mt={4} mb={4} textAlign='center'>
+        <Heading fontFamily='title' color='yellow.300' mb={4} >HEAD SCRATCHERS</Heading>
+        {!currGuess.length && !previousGuesses.length && <Text>Start typing to get started.</Text>}
       </Container>
-      <Box mb={2}>
+      <Box mb={2} ref={refocusToInput}>
         {renderedGuesses}
         {!gameOver && turnCount < MAX_TURNS && <WordBlock word={guessDisplay} wordMap={wordMap} />}
       </Box>
@@ -127,7 +129,10 @@ export default function Home() {
           onClick={handleReset}
           fontWeight='bold'
           fontSize='lg'
+          borderWidth={2}
+          mr={2}
         >Reset Game</Button>
+        <Rules />
       </Box>
     </Container>
   )

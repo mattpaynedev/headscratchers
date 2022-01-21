@@ -1,5 +1,5 @@
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
-import '@fontsource/mochiy-pop-one'
+import '@fontsource/mochiy-pop-one/400.css'
 
 const theme = extendTheme({
   fonts: {
