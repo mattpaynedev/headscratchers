@@ -4,7 +4,11 @@ import Letter from "./Letter"
 export default function Rules() {
 
     return (
-        <Popover placement='top-end' returnFocusOnClose={false}>
+        <Popover
+            placement='top-end'
+            returnFocusOnClose={false}
+            offset={[15, 10]}
+        >
             <PopoverTrigger>
                 <Button
                     bg='none'
@@ -19,7 +23,7 @@ export default function Rules() {
                 >How to Play?</Button>
             </PopoverTrigger>
             <PopoverContent bg='gray.700'>
-                <PopoverCloseButton />
+                <PopoverCloseButton mt={2} />
                 <PopoverHeader fontWeight='bold' fontSize='xl'>HOW TO PLAY:</PopoverHeader>
                 <PopoverBody fontSize='md'>
                     <Text textAlign='center'>The goal is to guess the word. Start typing and press ENTER to submit.</Text>
@@ -31,20 +35,20 @@ export default function Rules() {
                         mb={4}
                     >
                         <GridItem colSpan={1}>
-                            <Letter char="GREEN" bgColor='green.600' />
-                        </GridItem>
-                        <GridItem colSpan={3}>
-                            <Text> letters are correct and in the correct location.</Text>
-                        </GridItem>
-                        <GridItem colSpan={1}>
                             <Letter char="YELLOW" bgColor='yellow.600' />
                         </GridItem>
                         <GridItem colSpan={3}>
                             <Text> letters are correct but in the wrong location.</Text>
                         </GridItem>
+                        <GridItem colSpan={1}>
+                            <Letter char="GREEN" bgColor='green.600' />
+                        </GridItem>
+                        <GridItem colSpan={3}>
+                            <Text> letters are correct and in the correct location.</Text>
+                        </GridItem>
                     </Grid>
                 </PopoverBody>
             </PopoverContent>
-        </Popover>
+        </Popover >
     )
 }
