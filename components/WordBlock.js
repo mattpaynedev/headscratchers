@@ -1,14 +1,5 @@
-import { Heading, Container, Box } from '@chakra-ui/react'
-import { useState, useEffect } from 'react'
-
-function Letter({ char, bgColor }) {
-    return (
-        <Container bg={bgColor} centerContent borderWidth='1px' borderRadius='lg' p={3} m={2} minH={14} minW={12}>
-            <Heading size='md'>{char}</Heading>
-        </Container>
-    )
-}
-
+import { Box } from '@chakra-ui/react'
+import Letter from './Letter'
 
 export default function WordBlock({ word, answer = "", wordMap }) {
     const renderedWord = Array(word.length)
